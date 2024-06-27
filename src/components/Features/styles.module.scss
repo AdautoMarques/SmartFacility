@@ -1,0 +1,20 @@
+@import '../../../styles/mixins/padding.scss';
+
+.container{
+  @include Padding;
+  margin-top: 3rem;
+
+  h1{
+    font-size: 40px;
+    color: #372753;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  p{
+    font-size: 22px;
+    line-height: 2rem;
+    text-align: center;
+    color: #464646;
+  }
+}

@@ -15,7 +15,7 @@ const Header = () => {
 
       <div className={styles.menu}>
         <Link href="/">Home</Link>
-        <Link href="#">Quem Somos</Link>
+        <Link href="#Quem">Quem Somos</Link>
         <Link href="#">Contatos</Link>
         <Link href='#'>Login</Link>
       </div>
