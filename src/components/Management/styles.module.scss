@@ -1,0 +1,6 @@
+@import '../../../styles/mixins/padding.scss';
+
+.container{
+  @include Padding;
+  background-color: #011016;
+}

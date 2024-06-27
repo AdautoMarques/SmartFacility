@@ -15,6 +15,8 @@ const Features = () => {
         à Internet. O SmartFacility também oferece uma variedade de serviços de suporte ao cliente para ajudar os 
         empreendimentos a obter o máximo de informações de gerenciamento das instalações.
       </p>
+
+      
     </div>
   );
 }
