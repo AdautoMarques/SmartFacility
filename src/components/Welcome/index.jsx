@@ -1,6 +1,7 @@
 import Button from '../Button';
 import styles from './styles.module.scss'
 
+
 const Welcome = () => {
   return (
     <div className={styles.container}>
@@ -11,11 +12,11 @@ const Welcome = () => {
            A solução que você precisa está a apenas um clique de distância. 
            Conheça nossas Soluções</p>
 
-        <Button title='Conheça nossas Soluções' kind='secundary'/>
+        <div className={styles.button}>
+          <Button title='Conheça nossas Soluções' kind='secundary' />  
+        </div>
       </div>
-      <div className={styles.imagen}>
-
-      </div>
+      
     </div>
   );
 }
