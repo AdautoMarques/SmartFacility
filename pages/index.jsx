@@ -3,6 +3,7 @@ import styles from './Home.module.scss'
 import Welcome from '@/src/components/Welcome'
 import Features from '@/src/components/Features'
 import Management from '@/src/components/Management'
+import Sobre from '@/src/components/Sobre'
 
 export default function Home(){
   return(
@@ -11,6 +12,7 @@ export default function Home(){
       <Welcome />
       <Features />
       <Management />
+      <Sobre />
     </div>
   )
 }

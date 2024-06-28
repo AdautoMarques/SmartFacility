@@ -1,0 +1,42 @@
+@import '../../../styles/mixins/padding.scss';
+
+
+.container {
+  @include Padding;
+  margin-top: 5rem;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+
+  h1{
+    margin-top: 15px;
+    text-align: center;
+    color: #372753;
+    font-size: 40px;
+  }
+
+  h3{
+    opacity: 0.8;
+    font-size: 24px;
+    text-align: start;
+    margin-bottom: 5rem;
+  }
+
+  p{
+    font-size: 20px;
+    opacity: 0.8;
+    text-align: start;
+  }
+
+  .sobreImage{
+    margin-bottom: 5rem;
+    img{
+      height: 500px;
+      width: 650px;
+      object-fit: cover;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+  }
+}
