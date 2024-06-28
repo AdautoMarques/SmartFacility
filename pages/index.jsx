@@ -4,6 +4,7 @@ import Welcome from '@/src/components/Welcome'
 import Features from '@/src/components/Features'
 import Management from '@/src/components/Management'
 import Sobre from '@/src/components/Sobre'
+import Contato from '@/src/components/Contato'
 
 export default function Home(){
   return(
@@ -13,6 +14,7 @@ export default function Home(){
       <Features />
       <Management />
       <Sobre />
+      <Contato />
     </div>
   )
 }
