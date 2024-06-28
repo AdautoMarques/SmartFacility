@@ -3,8 +3,8 @@
 
 .container {
   @include Padding;
-  margin-top: 5rem;
-
+  padding-top: 5rem;
+  background-color: #f5f5f5;
   display: flex;
   justify-content: space-between;
   gap: 16px;
