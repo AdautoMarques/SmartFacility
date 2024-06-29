@@ -37,7 +37,7 @@
 .form{
   background-color: #ffffff;
   width: 100%;
-  max-width: 586px;
+  max-width: 600px;
   height: auto;
   border-radius: 5px;
   padding: 38px 31px;
@@ -85,6 +85,20 @@
 
   button:hover {
     background-color: #372753;
+  }
+
+  .priv{
+    p{
+      opacity: 0.8;
+      font-size: 15px;
+      line-height: 1.5rem;
+      text-align: center;
+
+      a{
+        font-size: 18px;
+        color: #007bff;
+      }
+    }
   }
 
 }
