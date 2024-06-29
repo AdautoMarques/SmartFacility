@@ -1,5 +1,6 @@
+import Button from '../Button';
 import styles from './styles.module.scss'
-import { Fa500Px } from "react-icons/fa";
+
 
 
 const Contato = () => {
@@ -16,7 +17,14 @@ const Contato = () => {
       </div>
 
       <div className={styles.form}>
+        <h1>Fale com um especialista</h1>
 
+        <input type="text" placeholder='Nome completo' required/>
+        <input type="email" placeholder='E-mail profissional' required/>
+        <input type="number" placeholder='Celular / Whatsapp'required/>
+        <textarea placeholder='Mensagem' required/>
+
+        <Button title='Enviar'/>
       </div>
     </div>
    );
