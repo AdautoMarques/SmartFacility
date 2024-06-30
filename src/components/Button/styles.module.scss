@@ -1,3 +1,5 @@
+@import '../../../styles/mixins/responsive.scss'; 
+
 .button{
   
   color: #FFFFFF;
@@ -10,6 +12,9 @@
 
   &.primary{
     background-color: #4CAF50;
+    @include Phone{
+      display: none;
+    }
   }
   
   &.secundary{

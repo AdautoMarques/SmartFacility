@@ -21,7 +21,7 @@ const Header = () => {
       </div>
 
       <div className={styles.action}>
-        <Button title='Fale conosco' kind='primary'/>
+        <Button title='Fale conosco' kind='primary' className={styles.btn}/>
       </div>
     </div>
   );

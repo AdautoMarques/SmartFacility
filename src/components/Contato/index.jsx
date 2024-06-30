@@ -25,7 +25,7 @@ const Contato = () => {
         <input type="number" placeholder='Celular / Whatsapp' required />
         <textarea placeholder='Mensagem' required />
 
-        <Button title='Enviar' />
+        <Button title='Enviar' kind='secundary'/>
 
         <div className={styles.priv}>
           <p>

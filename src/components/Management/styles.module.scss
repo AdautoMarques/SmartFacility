@@ -1,9 +1,13 @@
 @import '../../../styles/mixins/padding.scss';
+@import '../../../styles/mixins/responsive.scss';
 
 .container{
   @include Padding;
   background-color: #011016;
   margin-top: 5rem;
+
+ 
+
 
   .principal{
     font-size: 40px;
@@ -25,10 +29,17 @@
     justify-content: center;
     align-items: center;
     padding-bottom: 2rem;
+    
 
     img{
       border-radius: 10px;
       margin-bottom: 2rem;
+
+      @include Phone{
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+      }
     }
   }
 
@@ -40,7 +51,11 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 4rem;
   
-  
+  @include Phone{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+  }
 
   .management{
     padding: 32px 15px;

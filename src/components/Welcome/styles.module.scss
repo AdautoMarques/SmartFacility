@@ -1,4 +1,5 @@
 @import '../../../styles/mixins/padding.scss';
+@import '../../../styles/mixins/responsive.scss';
 
 .container {
   @include Padding; 
@@ -13,6 +14,11 @@
   height: calc(100vh - 10rem);
 
   position: relative;
+
+  @include Phone{
+    height: 100vh;
+    
+  }
 
 
   &::before {
@@ -36,9 +42,18 @@
     color: #ffffff;
     line-height: 2rem;
 
+    @include Phone{
+      font-size: 28px;
+      padding-top: 5rem;
+    }
+
     span {
       color: #0987a0; 
       font-weight: bold;
+
+      @include Phone{
+        color: #8d9192;
+      }
     }
   }
 
@@ -49,6 +64,10 @@
     opacity: 0.8;
     color: #f5f5f5; 
     line-height: 2rem;
+
+    @include Phone{
+      font-size: 20px;
+    }
   }
 }
 
@@ -57,4 +76,8 @@
   align-items: center;
   justify-content: center;
   margin-top: 10rem;
+
+  @include Phone{
+    margin-top: 2rem;
+  }
 }
