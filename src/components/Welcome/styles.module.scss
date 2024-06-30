@@ -47,12 +47,25 @@
       padding-top: 5rem;
     }
 
+    @include Tablet{
+      font-size: 40px;
+    }
+
+    @include Note{
+      font-size: 48px;
+    }
+
     span {
       color: #0987a0; 
       font-weight: bold;
 
       @include Phone{
         color: #8d9192;
+      }
+
+      @include Note{
+        font-size: 60px;
+        line-height: 5rem;
       }
     }
   }

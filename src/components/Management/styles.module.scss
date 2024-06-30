@@ -57,6 +57,12 @@
     padding-bottom: 1rem;
   }
 
+  @include Tablet{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-bottom: 1rem;
+  }
+
   .management{
     padding: 32px 15px;
     background-color: #FFFFFF;

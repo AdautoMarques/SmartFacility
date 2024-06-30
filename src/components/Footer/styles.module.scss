@@ -75,6 +75,10 @@
     @include Phone{
       font-size: 12px;
     }
+
+    @include Tablet{
+      font-size: 14px;
+    }
   }
 }
 
