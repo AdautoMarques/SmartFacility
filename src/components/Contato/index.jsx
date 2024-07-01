@@ -1,50 +1,127 @@
+// Contato.js
+
 'use client'
 
+import * as Yup from 'yup';
 import Link from 'next/link';
-import Button from '../Button';
-import styles from './styles.module.scss'
 import axios from 'axios';
+import { useFormik } from 'formik';
+
+import Button from '../Button';
+import styles from './styles.module.scss';
 import Input from '../Input';
 import Textarea from '../Textarea';
+import Loading from '../Loading';
 import { useState } from 'react';
-
-
+import  SuccessModal from '../SuccessModal';
+import  FailModal  from '../FailModal';
 
 const Contato = () => {
+  const [isLoading, setIsLoading] = useState(false)
+  const [successModal, setSuccessModal] = useState(false)
+  const [failModal, setFailModal] = useState(false)
 
-  const [nome, setNome] = useState('')
-  const [email, setEmail] = useState('')
-  const [phone,setPhone] = useState()
-  const [message, setMessage] = useState('')
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      email: '',
+      phone: '',
+      message: ''
+    },
 
+    validationSchema: Yup.object({
+      name: Yup.string().required('Campo obrigatório'),
+      email: Yup.string().email('E-mail inválido').required('Campo obrigatório'),
+      phone: Yup.string().matches(/^[0-9]{10,11}$/, 'Digite um telefone válido').required('Campo obrigatório'),
+      message: Yup.string().required('Campo obrigatório')
+    }),
 
-  const sendEmail = () => {
+    validateOnChange: false,
+    validateOnBlur: false,
+    onSubmit: (values) => handleSubmitForm(values)  
+  });
+
+ 
+
+  const handleSubmitForm = (values) => {
+    setIsLoading(true)
     axios
-      .post('/api/sendEmail', {messageBody: `Nome: ${nome}, Email: ${email}, Telefone: ${phone}, Messagem: ${message}`})
-      .then(() => console.log('boa guerreiro'))
-      .catch(() => console.log('vixii'))
+      .post('/api/sendEmail', { messageBody: `Nome: ${values.name}, Email: ${values.email}, Telefone: ${values.phone}, Mensagem: ${values.message}` })
+      .then(() => {
+        formik.resetForm()
+        setIsLoading(false)
+        setSuccessModal(true)
+      })
+      .catch(() => {
+        setIsLoading(false)
+        setFailModal(true)
+      })
+  }
+
+  const closeModal = () => {
+    setFailModal(false)
+    setSuccessModal(false)
   }
 
   return (
-    <div className={styles.container}>
+    <>
+    {successModal && <SuccessModal closeModal={closeModal}/>}
+    {failModal && <FailModal closeModal={closeModal}/>}
+    {isLoading && <Loading />}
+    <div className={styles.container} id='contato'>
       <div className={styles.text}>
         <span>Fale conosco</span>
         <h1>SmartFacility</h1>
         <div>
-          <p>📍  Rua Antônio Alves, n.°24-27, Bauru/SP</p>
-          <p>☎️  +55 14 3227-5346</p>
-          <p>📧  contato@smartfacility.pro</p>
+          <p>📍 Rua Antônio Alves, n.°24-27, Bauru/SP</p>
+          <p>☎️ +55 14 3227-5346</p>
+          <p>📧 contato@smartfacility.pro</p>
         </div>
       </div>
 
       <div className={styles.form}>
         <h1>Fale com um especialista</h1>
-        <form>
-         <Input type='text' placeholder='Nome Completo' required onBlur={(e) => setNome(e.target.value)}/>
-         <Input type="email" placeholder='E-mail profissional' required onBlur={(e) => setEmail(e.target.value)}/>
-         <Input type="number" placeholder='Celular / Whatsapp' required onBlur={(e) => setPhone(e.target.value)}/>
-         <Textarea placeholder='Mensagem' required onBlur={(e) => setMessage(e.target.value)}/>
-          <Button title='Enviar' kind='secundary' onClick={() => sendEmail()} />
+        <form id='formulario' onSubmit={formik.handleSubmit}>
+          <Input 
+            type='text' 
+            placeholder='Nome Completo' 
+            required 
+            onBlur={formik.handleBlur} 
+            onChange={formik.handleChange} 
+            name='name' 
+            id='name'
+            value={formik.values.name}
+          />
+          <Input 
+            type="email" 
+            placeholder='E-mail profissional' 
+            required 
+            onBlur={formik.handleBlur} 
+            onChange={formik.handleChange} 
+            name='email' 
+            id='email'
+            value={formik.values.email}
+          />
+          <Input 
+            type="text" 
+            placeholder='Celular / Whatsapp' 
+            required 
+            onBlur={formik.handleBlur} 
+            onChange={formik.handleChange} 
+            name='phone' 
+            id='phone'
+            value={formik.values.phone}
+          />
+          <Textarea 
+            placeholder='Mensagem' 
+            required 
+            onBlur={formik.handleBlur} 
+            onChange={formik.handleChange} 
+            name='message' 
+            id='message'
+            value={formik.values.message}
+          />
+          <Button type='submit' title='Enviar' kind='secondary' />
         </form>
         <div className={styles.priv}>
           <p>
@@ -52,9 +129,8 @@ const Contato = () => {
           </p>
         </div>
       </div>
-
-
     </div>
+    </>
   );
 }
 
