@@ -1,6 +1,6 @@
 import styles from './styles.module.scss'
 
-const Button = ({title, kind}) => {
+const Button = ({title, kind, onClick}) => {
   const generationClassByKind = () => {
     if(kind === 'secundary'){
       return styles.secundary
@@ -8,7 +8,7 @@ const Button = ({title, kind}) => {
   } 
 
   return ( 
-    <button className={`${styles.button} ${generationClassByKind()}`}>{title}</button>
+    <button className={`${styles.button} ${generationClassByKind()}`} onClick={() => onClick()}>{title}</button>
    );
 }
  
